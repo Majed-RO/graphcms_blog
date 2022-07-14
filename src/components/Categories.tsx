@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { sdkClient } from '../clients/graphql-request';
-import { Category, GetCategoriesQuery } from '../generated/graphql';
+import {  GetCategoriesQuery } from '../generated/graphql';
 
 const Categories = () => {
 	const [categories, setCategories] = useState<GetCategoriesQuery>();

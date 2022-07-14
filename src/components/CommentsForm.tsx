@@ -81,6 +81,7 @@ const CommentForm = ({ slug }: { slug: string }) => {
 			})
 			.catch(error => {
 				setError(true);
+        console.log(error);
 			});
 
 		if (storeData) {
