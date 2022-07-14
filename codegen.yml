@@ -1,0 +1,12 @@
+overwrite: true
+schema: "https://api-us-west-2.graphcms.com/v2/cl56kfj8o3wev01ue47u2d5ln/master"
+documents: "src/graphql/**/*.{ts,tsx,gql,graphql}"
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-request"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"

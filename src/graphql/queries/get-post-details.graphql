@@ -1,0 +1,34 @@
+query GetPostDetails($slug: String!) {
+	post(where: { slug: $slug }) {
+		title
+		excerpt
+		featuredImage {
+			url
+		}
+		author {
+			name
+			bio
+			photo {
+				url
+			}
+		}
+		createdAt
+		slug
+		content {
+			raw
+			html
+			text
+			json
+			references {
+				... on Post {
+					id
+					title
+				}
+			}
+		}
+		categories {
+			name
+			slug
+		}
+	}
+}
