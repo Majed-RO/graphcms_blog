@@ -16,15 +16,15 @@ const CommentForm = ({ slug }: { slug: string }) => {
 	 */
 
 	useEffect(() => {
-    /* You can use Boolean() or !! to convert a string to truthy/ falsy values 
-    * @see https://jorgedacostaza.gitbook.io/typescript-pt/recap/truthy
-    */
-		const IsSavedBefore  =
-			(!!(window.localStorage.getItem('name')) ||
-			Boolean(window.localStorage.getItem('email')) ) ;
+		/* You can use Boolean() or !! to convert a string to truthy/ falsy values
+		 * @see https://jorgedacostaza.gitbook.io/typescript-pt/recap/truthy
+		 */
+		const IsSavedBefore =
+			!!window.localStorage.getItem('name') ||
+			Boolean(window.localStorage.getItem('email'));
 
 		const initialFormData = {
-			name: window.localStorage.getItem('name')  ?? '',
+			name: window.localStorage.getItem('name') ?? '',
 			email: window.localStorage.getItem('email') ?? '',
 			storeData: IsSavedBefore,
 			comment: ''
@@ -81,7 +81,7 @@ const CommentForm = ({ slug }: { slug: string }) => {
 			})
 			.catch(error => {
 				setError(true);
-        console.log(error);
+				console.log(error);
 			});
 
 		if (storeData) {
@@ -113,6 +113,8 @@ const CommentForm = ({ slug }: { slug: string }) => {
 					className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
 					placeholder="Name"
 					name="name"
+					value={formData.name}
+					onChange={onInputChange}
 				/>
 				<input
 					type="email"
