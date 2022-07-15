@@ -58,6 +58,8 @@ const CommentForm = ({ slug }: { slug: string }) => {
 
 		const commentObj = { name, email, comment, slug };
 
+
+
 		submitComment(commentObj)
 			.then(res => {
 				if (res.createComment) {
@@ -130,9 +132,11 @@ const CommentForm = ({ slug }: { slug: string }) => {
 					<input
 						type="checkbox"
 						id="storeData"
-						name="storeDate"
-						value="true"
-						checked={formData.storeData}
+						name="storeData"
+						defaultChecked={
+							formData.storeData
+						}
+						// checked={formData.storeData}
 						onChange={onInputChange}
 					/>
 					<label
